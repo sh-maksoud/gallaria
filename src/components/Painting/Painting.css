@@ -1,0 +1,87 @@
+.artwork {
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.gradient_wrapper {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  height: 50%;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.0001) 0%,
+    rgba(0, 0, 0, 0.841672) 130%
+  );
+  z-index: 5;
+  opacity: 1;
+  transition: 700ms ease-in-out;
+}
+
+.artwork img {
+  width: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.painting_info {
+  position: absolute;
+  color: #FFFFFF;
+  grid-area: 1/2;
+  align-self: flex-end;
+  padding: 0 0 2rem 2rem;
+  max-width: 90%;
+  z-index: 9;
+  transition: none;
+}
+
+.painting_info h1 {
+  font-size: 1.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.painting_info p {
+  font-size: 0.815rem;
+}
+
+.artwork::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0);
+  z-index: 6;
+  transition: background 0.5s ease-in-out;
+}
+
+.artwork:hover img {
+  transform: scale(1.1);
+}
+
+.artwork:hover::before {
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 6;
+}
+
+@media(max-width: 1100px) {
+  .painting_info {
+    color: #FFFFFF;
+  }
+
+  .gradient_wrapper {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.0001) 0%,
+      rgba(0, 0, 0, 0.841672) 130%
+    );
+  }
+}
+
+@media(max-width: 650px) {
+  .painting_info {
+    padding: 0 0 1.5rem 1.5rem;
+  }
+}
